@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 // Get a single user by ID
 router.get('/:id', async (req, res) => {
-  try {git commit -m "Initial backend setup with user model and auth routes"
+  try {
     const user = await User.findById(req.params.id).select('-password');
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.json(user);
